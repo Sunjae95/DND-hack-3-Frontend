@@ -19,6 +19,7 @@ const Textarea = styled.textarea`
   border-radius: 8px;
   resize: none;
   outline: none;
+  overflow: hidden;
   ::placeholder {
     color: ${colors.optacityDark};
   }
