@@ -1,5 +1,5 @@
-import React from 'react';
 import styled from '@emotion/styled';
+import React from 'react';
 import { colors } from '../assets/colors';
 // interface Option {
 //   name: string;
@@ -27,7 +27,6 @@ const Container = styled.select`
   min-width: 60px;
   padding: 5px 8px;
   box-sizing: border-box;
-
   :focus {
     outline: none;
   }

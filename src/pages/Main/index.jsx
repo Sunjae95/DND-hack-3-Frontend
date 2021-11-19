@@ -2,6 +2,7 @@ import { ReactComponent as Logo } from '@assets/icons/logo.svg';
 import mainBanner from '@assets/images/main_banner.png';
 import { css } from '@emotion/react';
 import React from 'react';
+import { FilterSetting } from './filter-setting/FilterSetting';
 
 export function Main() {
   return (
@@ -22,6 +23,7 @@ export function Main() {
           height: 125px;
         `}
       />
+      <FilterSetting />
     </>
   );
 }
