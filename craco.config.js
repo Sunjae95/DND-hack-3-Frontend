@@ -14,6 +14,7 @@ module.exports = {
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@pages': path.resolve(__dirname, 'src/pages'),
       '@router': path.resolve(__dirname, 'src/router'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
     },
   },
 };
