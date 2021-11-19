@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from 'react';
 import { handleLogin } from './actions';
-import { initialUserData } from './reducer';
+import { initialUserData, reducer } from './reducer';
 import { USER_LOGIN } from './types';
 
 const UserContext = createContext(initialUserData);
