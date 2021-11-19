@@ -8,6 +8,7 @@ import { Button } from '@components/Button';
 import { ReactComponent as Close } from '@assets/icons/modal_close.svg';
 import { textStyle, selectButtonStyle } from '@constants/inlineStyle';
 import { gradeOptions } from '@constants/selectOption';
+import useForm from '../hooks/useForm';
 
 const Container = styled.div`
   width: 100%;
@@ -29,7 +30,13 @@ const SelectButtonWrapper = styled.div`
 `;
 
 export function Write() {
-  const handleChange = (e) => {};
+  const { values, handleChange, handleSubmit } = useForm({
+    initialValues: {},
+    onSubmit: () => {
+      //API연동
+      console.log(values);
+    },
+  });
 
   return (
     <Container>
@@ -41,17 +48,25 @@ export function Write() {
         value="모임 제목"
         style={textStyle('14px', 'bold', '24px', '6px')}
       />
-      <TextField placeholder="필수입력" onChange={handleChange}></TextField>
+      <TextField
+        placeholder="필수입력"
+        name="title"
+        onChange={handleChange}
+      ></TextField>
       <Text
         value="모임 내용"
         style={textStyle('14px', 'bold', '24px', '6px')}
       />
-      <TextareaField />
+      <TextareaField name="content" onChange={handleChange} />
       <Text
         value="오픈채팅방 주소"
         style={textStyle('14px', 'bold', '24px', '6px')}
       />
-      <TextField placeholder="카카오톡 오픈채팅방 생성 후 입력해주세요."></TextField>
+      <TextField
+        name="url"
+        onChange={handleChange}
+        placeholder="카카오톡 오픈채팅방 생성 후 입력해주세요."
+      ></TextField>
       <Text
         value="필터 설정"
         style={textStyle('14px', 'bold', '24px', '6px')}
@@ -78,7 +93,12 @@ export function Write() {
         options={gradeOptions}
         onChange={handleChange}
       />
-      <Button style={{ height: '44px', marginTop: '72px' }}>만들기</Button>
+      <Button
+        style={{ height: '44px', marginTop: '72px' }}
+        onClick={handleSubmit}
+      >
+        만들기
+      </Button>
     </Container>
   );
 }
