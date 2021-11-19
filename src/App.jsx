@@ -40,6 +40,7 @@ const Container = styled.div`
 const PageContainer = styled.div`
   width: 375px;
   height: 100vh;
+  overflow-y: scroll;
   background-color: ${colors.white};
 `;
 
