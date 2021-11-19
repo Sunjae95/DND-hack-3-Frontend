@@ -7,7 +7,7 @@ export function Main() {
   return (
     <>
       <Button onClick={toggle}>123</Button>
-      <Modal isOpen={isOpen} onClose={toggle}>
+      <Modal title="모임에 참여되었습니다." isOpen={isOpen} onClose={toggle}>
         123
       </Modal>
     </>

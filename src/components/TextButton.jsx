@@ -4,8 +4,7 @@ import { colors } from '../assets/colors';
 export const TextButton = styled.button`
   border: none;
   background: none;
-  width: 100%;
-  padding: 10px;
+  padding: 5px;
   border-radius: 10px;
   color: ${colors.dark};
   cursor: pointer;

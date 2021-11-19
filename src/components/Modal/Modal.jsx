@@ -2,7 +2,7 @@ import { ReactComponent as CloseIcon } from '@assets/icons/modal_close.svg';
 import { TextButton } from '@components/TextButton';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { colors } from '../../assets/colors';
 
 export function Modal({
@@ -10,8 +10,6 @@ export function Modal({
   onConfirm,
   onClose,
   title,
-  disabledFooter,
-  confirmButtonElement,
   children,
   ...props
 }) {
@@ -33,27 +31,31 @@ export function Modal({
     <Container>
       <Overlay ref={ref} onClick={onClose} />
       <ModalContainter
-        css={
-          !disabledFooter &&
-          css`
-            padding-bottom: 70px;
-          `
-        }
+        css={css`
+          width: 312px;
+        `}
         {...props}
       >
-        <ModalHeader>
-          <TextButton
-            onClick={onClose}
-            padding={10}
+        <>
+          <div
             css={css`
-              :hover {
-                background-color: ${colors.grey[0]};
-              }
+              text-align: right;
             `}
           >
-            <CloseIcon />
-          </TextButton>
-        </ModalHeader>
+            <TextButton
+              onClick={onClose}
+              padding={10}
+              css={css`
+                :hover {
+                  background-color: ${colors.grey[0]};
+                }
+              `}
+            >
+              <CloseIcon />
+            </TextButton>
+          </div>
+          {title != null && <Title>{title}</Title>}
+        </>
         <ModalContent>{children}</ModalContent>
       </ModalContainter>
     </Container>
@@ -82,15 +84,9 @@ const Overlay = styled.div`
   opacity: 0.5;
 `;
 
-const ModalHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 const ModalContainter = styled.div`
   position: relative;
-  padding: 15px 20px;
+  padding: 15px 20px 24px 20px;
   box-sizing: border-box;
   max-height: 80%;
   max-width: 80%;
@@ -99,3 +95,9 @@ const ModalContainter = styled.div`
 `;
 
 const ModalContent = styled.div``;
+
+const Title = styled.div`
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+`;
