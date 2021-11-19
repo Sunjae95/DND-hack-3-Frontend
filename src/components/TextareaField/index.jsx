@@ -1,44 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { colors } from '@assets/colors';
 
 const TextareaFieldWrapper = styled.div`
-  position: relative;
   width: 100%;
-  height: 500px;
+  height: 120px;
+  padding: 0 24px;
+  box-sizing: border-box;
 `;
 
 const Textarea = styled.textarea`
   width: 100%;
   height: 100%;
+  padding: 8px;
+  border: 1px solid ${colors.optacityDark};
+  box-sizing: border-box;
+  border-radius: 8px;
   resize: none;
-  border: none;
   outline: none;
   ::placeholder {
-    color: gray;
+    color: ${colors.optacityDark};
   }
 `;
 
-const LimitText = styled.span`
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
-`;
-
-const TextareaField = ({ size, onChange }) => {
+const TextareaField = ({ onChange }) => {
   return (
-    <TextareaFieldWrapper>
-      <Textarea
-        placeholder="(필수)내용을 작성해주세요."
-        onChange={onChange}
-      ></Textarea>
-      <LimitText>{size}/500</LimitText>
-    </TextareaFieldWrapper>
+    <div style={{ width: '360px' }}>
+      <TextareaFieldWrapper>
+        <Textarea placeholder="필수 입력" onChange={onChange}></Textarea>
+      </TextareaFieldWrapper>
+    </div>
   );
 };
 
 TextareaField.propTypes = {
-  text: PropTypes.number,
   onChange: PropTypes.func,
 };
 
