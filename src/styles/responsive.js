@@ -2,7 +2,7 @@ import { mobileSize } from '@constants/screenSize';
 import { useMediaQuery } from 'react-responsive';
 
 export const Desktop = ({ children }) => {
-  const isDesktop = useMediaQuery({ minWidth: mobileSize });
+  const isDesktop = useMediaQuery({ minWidth: mobileSize + 1 });
   return isDesktop ? children : null;
 };
 
