@@ -2,7 +2,7 @@ import { TextButton } from '@components/TextButton';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { useEffect, useRef } from 'react';
-import { colors } from '../../colors';
+import { colors } from '../../assets/colors';
 
 export function Modal({
   isOpen,

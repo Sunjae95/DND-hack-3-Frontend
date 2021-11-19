@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { colors } from '../colors';
+import { colors } from '../assets/colors';
 
 export function TextField(props) {
   return <Input type="text" {...props} />;

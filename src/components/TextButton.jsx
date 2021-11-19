@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { colors } from '../colors';
+import { colors } from '../assets/colors';
 
 export const TextButton = styled.button`
   border: none;
