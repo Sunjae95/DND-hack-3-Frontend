@@ -7,7 +7,12 @@ import { SelectButton } from '@components/SelectButton';
 import { Button } from '@components/Button';
 import { ReactComponent as Close } from '@assets/icons/modal_close.svg';
 import { textStyle, selectButtonStyle } from '@constants/inlineStyle';
-import { gradeOptions } from '@constants/selectOption';
+import {
+  gradeOptions,
+  teamOptions,
+  ageRangeOptions,
+  genderOptions,
+} from '@constants/selectOption';
 import useForm from '../hooks/useForm';
 
 const Container = styled.div`
@@ -74,23 +79,27 @@ export function Write() {
       <SelectButtonWrapper>
         <SelectButton
           style={selectButtonStyle('120px')}
+          name="grade"
           options={gradeOptions}
           onChange={handleChange}
         />
         <SelectButton
           style={selectButtonStyle('94px')}
-          options={gradeOptions}
+          name="age_range"
+          options={ageRangeOptions}
           onChange={handleChange}
         />
         <SelectButton
           style={selectButtonStyle('94px')}
-          options={gradeOptions}
+          name="gender"
+          options={genderOptions}
           onChange={handleChange}
         />
       </SelectButtonWrapper>
       <SelectButton
         style={selectButtonStyle('100%', '12px')}
-        options={gradeOptions}
+        name="cheer"
+        options={teamOptions}
         onChange={handleChange}
       />
       <Button
