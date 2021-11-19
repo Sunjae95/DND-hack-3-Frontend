@@ -1,8 +1,10 @@
 import { ReactComponent as Logo } from '@assets/icons/logo.svg';
 import mainBanner from '@assets/images/main_banner.png';
 import { css } from '@emotion/react';
+import { Spacing } from '@styles/Spacing';
 import React from 'react';
 import { FilterSetting } from './filter-setting/FilterSetting';
+import { Posts } from './posts/Posts';
 
 export function Main() {
   return (
@@ -24,6 +26,8 @@ export function Main() {
         `}
       />
       <FilterSetting />
+      <Spacing size={20} />
+      <Posts />
     </>
   );
 }

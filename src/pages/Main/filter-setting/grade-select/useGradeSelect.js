@@ -2,7 +2,7 @@ import { route } from '@router';
 import React from 'react';
 import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
 
-const tiers = [
+const grades = [
   '아이언',
   '브론즈',
   '실버',
@@ -14,7 +14,7 @@ const tiers = [
   '챌린저',
 ];
 
-export function useTierSelect() {
+export function useGradeSelect() {
   const query = useQuery();
   const navigate = useNavigate();
 
@@ -26,13 +26,13 @@ export function useTierSelect() {
   };
 
   return {
-    tier: query.get('tier'),
-    tierOption: [
+    grade: query.get('grade'),
+    gradeOption: [
       {
         name: '선택 안함',
         value: undefined,
       },
-      ...changeToOptions(tiers),
+      ...changeToOptions(grades),
     ],
     changeFilterSelectValue,
   };
@@ -47,8 +47,6 @@ function changeToOptions(arr) {
 
 function useQuery() {
   const { search } = useLocation();
-
-  console.log(search);
 
   return React.useMemo(() => new URLSearchParams(search), [search]);
 }

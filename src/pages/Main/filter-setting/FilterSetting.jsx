@@ -5,8 +5,8 @@ import { Spacing } from '@styles/Spacing';
 import React from 'react';
 import { AgeSelect } from './age-select/AgeSelect';
 import { GenderSelect } from './gender-select/GenderSelect';
+import { GradeSelect } from './grade-select/GradeSelect';
 import { TeamSelect } from './team-select/TeamSelect';
-import { TierSelect } from './tier-select/TierSelect';
 
 export function FilterSetting() {
   return (
@@ -20,7 +20,7 @@ export function FilterSetting() {
           justify-content: space-between;
         `}
       >
-        <TierSelect />
+        <GradeSelect />
         <AgeSelect />
         <GenderSelect />
       </div>

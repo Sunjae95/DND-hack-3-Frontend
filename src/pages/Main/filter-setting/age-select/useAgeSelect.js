@@ -9,14 +9,23 @@ export function useAgeSelect() {
   const navigate = useNavigate();
 
   const changeFilterSelectValue = (value) => {
+    const grade = query.get('grade');
+    const cheer = query.get('cheer');
+    const gender = query.get('gender');
+
     navigate({
       pathname: route.main,
-      search: `?${createSearchParams({ ...query, age: value })}`,
+      search: `?${createSearchParams({
+        grade,
+        cheer,
+        gender,
+        age_range: value,
+      })}`,
     });
   };
 
   return {
-    age: query.get('age'),
+    age: query.get('age_range'),
     ageOption: [
       {
         name: '선택 안함',
@@ -37,8 +46,6 @@ function changeToOptions(arr) {
 
 function useQuery() {
   const { search } = useLocation();
-
-  console.log(search);
 
   return React.useMemo(() => new URLSearchParams(search), [search]);
 }

@@ -1,16 +1,16 @@
 import { SelectButton } from '@components/SelectButton';
 import { css } from '@emotion/react';
 import React from 'react';
-import { useTierSelect } from './useTierSelect';
+import { useGradeSelect } from './useGradeSelect';
 
-export function TierSelect() {
-  const { tier, tierOption, changeFilterSelectValue } = useTierSelect();
+export function GradeSelect() {
+  const { grade, gradeOption, changeFilterSelectValue } = useGradeSelect();
 
   return (
     <SelectButton
-      options={tierOption}
+      options={gradeOption}
       placeholder="티어"
-      value={tier}
+      value={grade}
       onChange={(e) => changeFilterSelectValue(e)}
       css={css`
         width: 120px;
