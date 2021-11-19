@@ -1,3 +1,4 @@
+import { ReactComponent as CloseIcon } from '@assets/icons/modal_close.svg';
 import { TextButton } from '@components/TextButton';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -50,7 +51,7 @@ export function Modal({
               }
             `}
           >
-            닫기
+            <CloseIcon />
           </TextButton>
         </ModalHeader>
         <ModalContent>{children}</ModalContent>
