@@ -8,7 +8,7 @@ import { colors } from '../assets/colors';
 
 export function SelectButton({ options, onChange, ...props }) {
   return (
-    <Container onChange={(e) => onChange(e.target.value)} {...props}>
+    <Container onChange={onChange} {...props}>
       {options?.map(({ name, value }) => (
         <option key={name} value={value}>
           {name}
