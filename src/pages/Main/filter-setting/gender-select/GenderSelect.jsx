@@ -9,11 +9,11 @@ export function GenderSelect() {
   return (
     <SelectButton
       options={genderOption}
-      defaultValue={gender}
       value={gender}
+      placeholder="성별"
       onChange={(e) => changeFilterSelectValue(e)}
       css={css`
-        width: 80px;
+        width: 85px;
       `}
     />
   );

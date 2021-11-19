@@ -1,7 +1,7 @@
 import { SelectButton } from '@components/SelectButton';
+import { css } from '@emotion/react';
 import React from 'react';
 import { useTierSelect } from './useTierSelect';
-import { css } from '@emotion/react';
 
 export function TierSelect() {
   const { tier, tierOption, changeFilterSelectValue } = useTierSelect();
@@ -9,7 +9,7 @@ export function TierSelect() {
   return (
     <SelectButton
       options={tierOption}
-      defaultValue={tier}
+      placeholder="티어"
       value={tier}
       onChange={(e) => changeFilterSelectValue(e)}
       css={css`

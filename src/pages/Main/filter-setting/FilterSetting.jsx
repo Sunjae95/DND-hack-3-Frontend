@@ -1,6 +1,7 @@
 import { colors } from '@assets/colors';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Spacing } from '@styles/Spacing';
 import React from 'react';
 import { AgeSelect } from './age-select/AgeSelect';
 import { GenderSelect } from './gender-select/GenderSelect';
@@ -11,6 +12,7 @@ export function FilterSetting() {
   return (
     <Container>
       <Title>필터 설정</Title>
+      <Spacing size={10} />
       <div
         css={css`
           width: 100%;
@@ -22,6 +24,7 @@ export function FilterSetting() {
         <AgeSelect />
         <GenderSelect />
       </div>
+      <Spacing size={8} />
       <TeamSelect />
     </Container>
   );

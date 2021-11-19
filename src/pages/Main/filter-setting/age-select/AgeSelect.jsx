@@ -9,11 +9,11 @@ export function AgeSelect() {
   return (
     <SelectButton
       options={ageOption}
-      defaultValue={age}
       value={age}
+      placeholder="나이"
       onChange={(e) => changeFilterSelectValue(e)}
       css={css`
-        width: 80px;
+        width: 85px;
       `}
     />
   );

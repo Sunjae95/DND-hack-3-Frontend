@@ -6,9 +6,12 @@ import { colors } from '../assets/colors';
 //   value: any;
 // }
 
-export function SelectButton({ options, onChange, ...props }) {
+export function SelectButton({ options, onChange, placeholder, ...props }) {
   return (
     <Container onChange={onChange} {...props}>
+      <option value="" disabled selected>
+        {placeholder}
+      </option>
       {options?.map(({ name, value }) => (
         <option key={name} value={value}>
           {name}

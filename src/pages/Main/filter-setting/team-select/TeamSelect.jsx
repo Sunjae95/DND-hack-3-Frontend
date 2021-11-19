@@ -9,7 +9,7 @@ export function TeamSelect() {
   return (
     <SelectButton
       options={teamOption}
-      defaultValue={team}
+      placeholder="전체 팀"
       value={team}
       onChange={(e) => changeFilterSelectValue(e)}
       css={css`
