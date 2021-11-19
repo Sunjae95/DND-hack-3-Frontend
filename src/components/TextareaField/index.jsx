@@ -18,8 +18,14 @@ const Textarea = styled.textarea`
   }
 `;
 
-const TextareaField = ({ onChange }) => {
-  return <Textarea placeholder="필수 입력" onChange={onChange}></Textarea>;
+const TextareaField = (props) => {
+  return (
+    <Textarea
+      placeholder="필수 입력"
+      name={props.name}
+      onChange={props.onChange}
+    ></Textarea>
+  );
 };
 
 TextareaField.propTypes = {
