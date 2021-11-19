@@ -1,7 +1,11 @@
 import React from 'react';
 
-const Text = () => {
-  return <div>jfklads</div>;
+const Text = ({ value, ...props }) => {
+  return (
+    <div {...props}>
+      <span>{value}</span>
+    </div>
+  );
 };
 
 export default Text;
