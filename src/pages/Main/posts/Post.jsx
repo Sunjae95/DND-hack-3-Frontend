@@ -75,7 +75,7 @@ export function Post({ post }) {
         <>
           <Button onClick={toggle}>참가</Button>
           <Modal title="참가" isOpen={isOpen} onClose={toggle}>
-            <SignUp onClose={toggle} />
+            <SignUp onClick={toggle} />
           </Modal>
         </>
       ) : (

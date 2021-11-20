@@ -15,7 +15,8 @@ import {
   genderOptions,
 } from '@constants/selectOption';
 import useForm from '../hooks/useForm';
-import { getToken, setToken } from '../utils/Token';
+import { getToken } from '../utils/Token';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
@@ -37,6 +38,7 @@ const SelectButtonWrapper = styled.div`
 `;
 
 export function Write() {
+  const navigate = useNavigate();
   const { values, handleChange, handleSubmit } = useForm({
     initialValues: {},
     onSubmit: async () => {
@@ -50,6 +52,7 @@ export function Write() {
           'Content-Type': 'application/json',
         },
       });
+      navigate({ pathname: '/' });
     },
   });
 
@@ -57,7 +60,7 @@ export function Write() {
     <Container>
       <TitleWrapper>
         <Text value="모임만들기" style={textStyle('24px', 'bold')} />
-        <Close />
+        <Close onClick={() => history.back()} />
       </TitleWrapper>
       <Text
         value="모임 제목"
