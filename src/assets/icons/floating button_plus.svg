@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <filter id="타원_1" x="0" y="0" width="96" height="96" filterUnits="userSpaceOnUse">
+      <feOffset dy="4" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="floating_button_plus" data-name="floating button_plus" transform="translate(-264 -1069)">
+    <g transform="matrix(1, 0, 0, 1, 264, 1069)" fill="black">
+      <circle id="타원_1-2" data-name="타원 1" cx="24" cy="24" r="24" transform="translate(24 20)"/>
+    </g>
+    <g id="add-line" transform="translate(300 1101)">
+      <path id="패스_4210" data-name="패스 4210" d="M0,0H24V24H0Z" fill="black"/>
+      <path id="패스_4211" data-name="패스 4211" d="M11,11V5h2v6h6v2H13v6H11V13H5V11Z" fill="#fff"/>
+    </g>
+  </g>
+</svg>
