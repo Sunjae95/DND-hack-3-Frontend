@@ -1,31 +1,29 @@
 import { route } from '@router';
-import React from 'react';
-import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
+import { changeToOptions } from '@utils/changeToOptions';
+import { createSearchParams } from '@utils/createSearchParams';
+import { useNavigate } from 'react-router-dom';
+import { useFilterValue } from '../../hooks/useFilterValue';
 
 export const ages = ['10대', '20대', '30대', '40대 이상'];
 
 export function useAgeSelect() {
-  const query = useQuery();
+  const query = useFilterValue();
   const navigate = useNavigate();
+  const { gender, cheer, grade } = query;
 
   const changeFilterSelectValue = (value) => {
-    const grade = query.get('grade');
-    const cheer = query.get('cheer');
-    const gender = query.get('gender');
-
     navigate({
       pathname: route.main,
-      search: `?${createSearchParams({
-        grade,
-        cheer,
-        gender,
-        age_range: value,
-      })}`,
+      search: `?${createSearchParams(
+        value != null && value != '선택 안함'
+          ? { ...query, age_range: value }
+          : { gender, cheer, grade },
+      )}`,
     });
   };
 
   return {
-    age: query.get('age_range'),
+    age: query.age,
     ageOption: [
       {
         name: '선택 안함',
@@ -35,17 +33,4 @@ export function useAgeSelect() {
     ],
     changeFilterSelectValue,
   };
-}
-
-function changeToOptions(arr) {
-  return arr.map((item) => ({
-    name: item,
-    value: item,
-  }));
-}
-
-function useQuery() {
-  const { search } = useLocation();
-
-  return React.useMemo(() => new URLSearchParams(search), [search]);
 }

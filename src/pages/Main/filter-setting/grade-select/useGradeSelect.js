@@ -1,6 +1,8 @@
 import { route } from '@router';
-import React from 'react';
-import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
+import { changeToOptions } from '@utils/changeToOptions';
+import { createSearchParams } from '@utils/createSearchParams';
+import { useNavigate } from 'react-router-dom';
+import { useFilterValue } from '../../hooks/useFilterValue';
 
 export const grades = [
   '아이언',
@@ -15,18 +17,24 @@ export const grades = [
 ];
 
 export function useGradeSelect() {
-  const query = useQuery();
   const navigate = useNavigate();
+
+  const query = useFilterValue();
+  const { gender, age_range, cheer } = query;
 
   const changeFilterSelectValue = (value) => {
     navigate({
       pathname: route.main,
-      search: `?${createSearchParams({ ...query, grade: value })}`,
+      search: `?${createSearchParams(
+        value != null && value != '선택 안함'
+          ? { ...query, grade: value }
+          : { gender, age_range, cheer },
+      )}`,
     });
   };
 
   return {
-    grade: query.get('grade'),
+    grade: query.grade,
     gradeOption: [
       {
         name: '선택 안함',
@@ -36,17 +44,4 @@ export function useGradeSelect() {
     ],
     changeFilterSelectValue,
   };
-}
-
-function changeToOptions(arr) {
-  return arr.map((item) => ({
-    name: item,
-    value: item,
-  }));
-}
-
-function useQuery() {
-  const { search } = useLocation();
-
-  return React.useMemo(() => new URLSearchParams(search), [search]);
 }

@@ -11,9 +11,9 @@ export function GenderSelect() {
       options={genderOption}
       value={gender}
       placeholder="성별"
-      onChange={(e) => changeFilterSelectValue(e)}
+      onChange={(e) => changeFilterSelectValue(e.target.value)}
       css={css`
-        width: 85px;
+        width: 100px;
       `}
     />
   );

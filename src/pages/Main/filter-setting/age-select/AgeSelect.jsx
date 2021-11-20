@@ -11,7 +11,7 @@ export function AgeSelect() {
       options={ageOption}
       value={age}
       placeholder="나이"
-      onChange={(e) => changeFilterSelectValue(e)}
+      onChange={(e) => changeFilterSelectValue(e.target.value)}
       css={css`
         width: 85px;
       `}

@@ -1,6 +1,8 @@
 import { route } from '@router';
-import React from 'react';
-import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
+import { changeToOptions } from '@utils/changeToOptions';
+import { createSearchParams } from '@utils/createSearchParams';
+import { useNavigate } from 'react-router-dom';
+import { useFilterValue } from '../../hooks/useFilterValue';
 
 export const teams = [
   'DWG KIA',
@@ -22,19 +24,24 @@ export const teams = [
 ];
 
 export function useTeamSelect() {
-  const query = useQuery();
   const navigate = useNavigate();
+  const query = useFilterValue();
+  const { gender, age_range, grade } = query;
 
   const changeFilterSelectValue = (value) => {
     navigate({
       pathname: route.main,
-      search: `?${createSearchParams({ ...query, cheer: value })}`,
+      search: `?${createSearchParams(
+        value != null && value != '선택 안함'
+          ? { ...query, cheer: value }
+          : { gender, age_range, grade },
+      )}`,
     });
   };
 
   return {
-    team: query.get('cheer'),
-    teamOption: [
+    cheer: query.cheer,
+    cheerOption: [
       {
         name: '선택 안함',
         value: undefined,
@@ -43,17 +50,4 @@ export function useTeamSelect() {
     ],
     changeFilterSelectValue,
   };
-}
-
-function changeToOptions(arr) {
-  return arr.map((item) => ({
-    name: item,
-    value: item,
-  }));
-}
-
-function useQuery() {
-  const { search } = useLocation();
-
-  return React.useMemo(() => new URLSearchParams(search), [search]);
 }
