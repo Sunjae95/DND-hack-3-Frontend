@@ -1,11 +1,10 @@
-import React from 'react';
+import { Button } from '@components/Button';
 import Text from '@components/Text';
 import { TextField } from '@components/TextField';
 import { textStyle } from '@constants/inlineStyle';
-import { Button } from '@components/Button';
-import useForm from '@hooks/useForm';
-
 import { useUserContext } from '@contexts/UserContext/UserProvider';
+import useForm from '@hooks/useForm';
+import React from 'react';
 
 const SignUp = ({ onClick }) => {
   const { onSignUp } = useUserContext();
@@ -29,6 +28,7 @@ const SignUp = ({ onClick }) => {
       <TextField
         placeholder="비밀번호를 입력해주세요."
         name="password"
+        type="password"
         onChange={handleChange}
       />
       <Button
