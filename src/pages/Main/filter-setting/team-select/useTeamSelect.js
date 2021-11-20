@@ -2,7 +2,7 @@ import { route } from '@router';
 import React from 'react';
 import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
 
-const teams = [
+export const teams = [
   'DWG KIA',
   'Gen.G',
   'Hanwha Life Esports',
@@ -28,12 +28,12 @@ export function useTeamSelect() {
   const changeFilterSelectValue = (value) => {
     navigate({
       pathname: route.main,
-      search: `?${createSearchParams({ ...query, team: value })}`,
+      search: `?${createSearchParams({ ...query, cheer: value })}`,
     });
   };
 
   return {
-    team: query.get('tier'),
+    team: query.get('cheer'),
     teamOption: [
       {
         name: '선택 안함',

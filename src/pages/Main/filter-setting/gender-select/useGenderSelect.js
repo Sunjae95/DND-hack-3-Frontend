@@ -2,7 +2,7 @@ import { route } from '@router';
 import React from 'react';
 import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
 
-const genders = ['여자', '남자'];
+export const genders = ['여자', '남자'];
 
 export function useGenderSelect() {
   const query = useQuery();

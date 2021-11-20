@@ -2,7 +2,7 @@ import { route } from '@router';
 import React from 'react';
 import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
 
-const ages = ['10대', '20대', '30대', '40대 이상'];
+export const ages = ['10대', '20대', '30대', '40대 이상'];
 
 export function useAgeSelect() {
   const query = useQuery();

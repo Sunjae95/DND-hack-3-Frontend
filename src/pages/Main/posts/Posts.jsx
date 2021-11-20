@@ -1,3 +1,4 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { Stack } from '@styles/Stack';
 import React from 'react';
@@ -5,9 +6,9 @@ import { Post } from './Post';
 import { usePosts } from './usePosts';
 
 export function Posts() {
-  const { posts } = usePosts();
+  const { isLoading, posts } = usePosts();
 
-  if (posts?.length === 0) {
+  if (isLoading || posts == null || posts?.length === 0) {
     return (
       <Empty>
         <div>해당 모임이 없습니다.</div>
@@ -17,9 +18,15 @@ export function Posts() {
   }
 
   return (
-    <Stack direction="column" gutter={10}>
-      {posts?.map((_, index) => (
-        <Post key={index} index={index} />
+    <Stack
+      direction="column"
+      gutter={16}
+      css={css`
+        margin: 15px;
+      `}
+    >
+      {posts?.map((post, index) => (
+        <Post key={index} post={post} />
       ))}
     </Stack>
   );

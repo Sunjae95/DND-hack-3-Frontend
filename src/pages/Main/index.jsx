@@ -28,6 +28,7 @@ export function Main() {
       <FilterSetting />
       <Spacing size={20} />
       <Posts />
+      <Spacing size={50} />
     </>
   );
 }

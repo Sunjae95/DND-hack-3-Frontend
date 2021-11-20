@@ -2,7 +2,7 @@ import { route } from '@router';
 import React from 'react';
 import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
 
-const grades = [
+export const grades = [
   '아이언',
   '브론즈',
   '실버',
@@ -21,7 +21,7 @@ export function useGradeSelect() {
   const changeFilterSelectValue = (value) => {
     navigate({
       pathname: route.main,
-      search: `?${createSearchParams({ ...query, tier: value })}`,
+      search: `?${createSearchParams({ ...query, grade: value })}`,
     });
   };
 

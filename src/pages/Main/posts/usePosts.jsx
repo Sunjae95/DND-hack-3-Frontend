@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
+import apiInstance from '../../../customAxios';
 
 export function usePosts() {
   const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState();
 
   const fetch = async () => {
-    setTimeout(() => {
-      setPosts([]);
-    }, 2000);
+    const { data } = await apiInstance.get('/match/filter_match/');
+    setPosts(data);
     setIsLoading(false);
   };
 
