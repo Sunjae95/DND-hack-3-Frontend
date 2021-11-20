@@ -4,7 +4,7 @@ import { createSearchParams } from '@utils/createSearchParams';
 import { useNavigate } from 'react-router-dom';
 import { useFilterValue } from '../../hooks/useFilterValue';
 
-export const ages = ['10대', '20대', '30대', '40대 이상'];
+export const ages = ['10대', '20대', '30대', '40대', '50대'];
 
 export function useAgeSelect() {
   const query = useFilterValue();

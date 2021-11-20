@@ -8,7 +8,17 @@ import { usePosts } from './usePosts';
 export function Posts() {
   const { isLoading, posts } = usePosts();
 
-  if (isLoading || posts == null || posts?.length === 0) {
+  if (isLoading) {
+    return (
+      <Stack direction="column" gutter={16}>
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+      </Stack>
+    );
+  }
+
+  if (posts == null || posts?.length === 0) {
     return (
       <Empty>
         <div>해당 모임이 없습니다.</div>
@@ -36,4 +46,11 @@ const Empty = styled.div`
   margin-top: 120px;
   color: #00000066;
   text-align: center;
+`;
+
+const Skeleton = styled.div`
+  height: 239px;
+  background-color: #f2f2f2;
+  margin: 15px;
+  border-radius: 12px;
 `;

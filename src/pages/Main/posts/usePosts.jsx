@@ -20,10 +20,10 @@ export function usePosts() {
 
     const searchParams = createSearchParams({
       // user_id: 'july',
-      grade: gradeIndex != -1 ? gradeIndex : undefined,
-      age_range: ageRangeIndex != -1 ? ageRangeIndex : undefined,
-      cheer: cheerIndex != -1 ? cheerIndex : undefined,
-      gender: genderIndex != -1 ? genderIndex : undefined,
+      grade: gradeIndex != -1 ? gradeIndex + 1 : undefined,
+      age_range: ageRangeIndex != -1 ? ageRangeIndex + 1 : undefined,
+      cheer: cheerIndex != -1 ? cheerIndex + 1 : undefined,
+      gender: genderIndex != -1 ? genderIndex + 1 : undefined,
     });
     const { data } = await apiInstance.get(
       `/match/filter_match/?${searchParams}`,

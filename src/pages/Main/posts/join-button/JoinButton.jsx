@@ -2,11 +2,14 @@ import { Button } from '@components/Button';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { colors } from '../../../../assets/colors';
+import { getToken } from '../../../../utils/Token';
 import { LinkButton } from '../link-button/LinkButton';
 
 export function JoinButton({ group }) {
   const [loading, setLoading] = useState();
   const [url, setUrl] = useState();
+
+  const user = getToken('user');
 
   return url != null ? (
     <LinkButton url={url} />
@@ -17,7 +20,7 @@ export function JoinButton({ group }) {
         const { data } = await axios.post(
           'https://hack-dnd.herokuapp.com/match/joined_member/',
           {
-            user: 'julysein723',
+            user: `${user.user_id}`,
             group,
           },
         );

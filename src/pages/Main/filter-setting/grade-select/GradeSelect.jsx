@@ -1,3 +1,4 @@
+import { colors } from '@assets/colors';
 import { SelectButton } from '@components/SelectButton';
 import { css } from '@emotion/react';
 import React from 'react';
@@ -13,7 +14,7 @@ export function GradeSelect() {
       value={grade}
       onChange={(e) => changeFilterSelectValue(e.target.value)}
       css={css`
-        width: 120px;
+        background-color: ${colors.white};
       `}
     />
   );
