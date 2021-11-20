@@ -12,8 +12,8 @@ export function LinkButton({ url }) {
     <>
       <Button
         onClick={toggle}
-        backgroundColor="#0137F3"
-        textColor={colors.primary}
+        backgroundColor={'#0137F3'}
+        textColor={colors.white}
       >
         링크 보기
       </Button>

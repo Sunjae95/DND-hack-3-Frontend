@@ -79,7 +79,7 @@ export function Post({ post }) {
       </Stack>
       <Spacing size={24} />
       {joined_member_num >= 4 ? (
-        <Button backgroundColor={colors.grey[1]} textColor={colors.grey[4]}>
+        <Button backgroundColor={colors.grey[1]} textColor={colors.grey[5]}>
           마감된 모임
         </Button>
       ) : status ? (
@@ -107,8 +107,8 @@ const Content = styled.div`
 `;
 
 const Tag = styled.div`
-  background-color: ${colors.grey[2]};
+  background-color: ${colors.grey[1]};
   border-radius: 16px;
   padding: 4px 8px;
-  color: ${colors.grey[4]};
+  color: ${colors.grey[5]};
 `;
