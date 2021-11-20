@@ -1,4 +1,4 @@
-import { Main } from '@pages/Main';
+import { Main } from '@pages/Main/index.jsx';
 import { Write } from '@pages/Write';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserProvider from '../contexts/UserContext/UserProvider';

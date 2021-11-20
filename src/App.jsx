@@ -1,6 +1,8 @@
 import { css, Global } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Info } from '@pages/Info';
 import { Router } from '@router';
+import { RowSpacing } from '@styles/RowSpacing';
 import React from 'react';
 import { colors } from './assets/colors';
 import { Desktop } from './styles/responsive';
@@ -18,7 +20,10 @@ function App() {
         `}
       />
       <Container>
-        <Desktop>123</Desktop>
+        <Desktop>
+          <Info />
+          <RowSpacing size={98} />
+        </Desktop>
         <PageContainer>
           <Router />
         </PageContainer>
@@ -35,6 +40,7 @@ const Container = styled.div`
 const PageContainer = styled.div`
   width: 375px;
   height: 100vh;
+  overflow-y: scroll;
   background-color: ${colors.white};
 `;
 
