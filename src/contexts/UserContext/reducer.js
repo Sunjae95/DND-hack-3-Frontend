@@ -1,15 +1,17 @@
-import { USER_LOGIN } from './types';
+import { USER_SIGNUP } from './types';
 
 export const initialUserData = {
-  user: {},
+  userId: '',
+  nickname: '',
 };
 
 export const reducer = (state, { type, payload }) => {
   switch (type) {
-    case USER_LOGIN: {
+    case USER_SIGNUP: {
       return {
         ...state,
-        user: payload.user,
+        userId: payload.userId,
+        nickname: payload.nickname,
       };
     }
     default: {

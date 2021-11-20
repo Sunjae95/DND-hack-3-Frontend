@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from 'react';
-import { handleLogin } from './actions';
+import { handleSignUp } from './actions';
 import { initialUserData, reducer } from './reducer';
-import { USER_LOGIN } from './types';
+import { USER_SIGNUP } from './types';
 
 const UserContext = createContext(initialUserData);
 export const useUserContext = () => useContext(UserContext);
@@ -9,17 +9,17 @@ export const useUserContext = () => useContext(UserContext);
 const UserProvider = ({ children }) => {
   const [user, dispatch] = useReducer(reducer, initialUserData);
 
-  const onLogin = async (data) => {
+  const onSignUp = async (data) => {
     try {
-      const currentUser = await handleLogin(data);
-      dispatch({ type: USER_LOGIN, payload: currentUser });
+      const { user_id: userId, nickname } = await handleSignUp(data);
+      dispatch({ type: USER_SIGNUP, payload: { userId, nickname } });
     } catch (e) {
       console.log(e);
     }
   };
 
   return (
-    <UserContext.Provider value={{ user, onLogin }}>
+    <UserContext.Provider value={{ user, onSignUp }}>
       {children}
     </UserContext.Provider>
   );

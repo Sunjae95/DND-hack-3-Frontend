@@ -1,6 +1,3 @@
-const SESSION_STORAGE_KEY = 'token';
-
-export const getToken = () =>
-  JSON.parse(localStorage.getItem(SESSION_STORAGE_KEY));
-export const setToken = (token) =>
-  localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(token));
+export const getToken = (key) => JSON.parse(localStorage.getItem(key));
+export const setToken = (key, value) =>
+  localStorage.setItem(key, JSON.stringify(key, value));
