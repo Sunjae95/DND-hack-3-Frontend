@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
 import React from 'react';
 import { colors } from '../assets/colors';
+import { ReactComponent as ArrowDown } from '../assets/icons/arrow-down.svg';
 
 // interface Option {
 //   name: string;
@@ -21,6 +22,9 @@ export function SelectButton({
           border: 1px solid ${colors.grey[4]};
           border-radius: 16px;
           padding: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         `,
       ]}
       {...props}
@@ -33,7 +37,12 @@ export function SelectButton({
           font-size: 14px;
           font-weight: normal;
           box-sizing: border-box;
-          width: 100%;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          margin-left: 3px;
+          height: 100%;
+          flex: 1;
 
           :focus {
             outline: none;
@@ -52,6 +61,7 @@ export function SelectButton({
           </option>
         ))}
       </select>
+      <ArrowDown />
     </div>
   );
 }
