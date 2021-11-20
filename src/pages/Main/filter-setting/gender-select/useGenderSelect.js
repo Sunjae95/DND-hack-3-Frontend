@@ -1,6 +1,8 @@
 import { route } from '@router';
+import { changeToOptions } from '@utils/changeToOptions';
+import { createSearchParams } from '@utils/creareSearchParams';
 import React from 'react';
-import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const genders = ['여자', '남자'];
 
@@ -16,27 +18,20 @@ export function useGenderSelect() {
   };
 
   return {
-    gender: query.get('gender'),
-    genderOption: [
-      {
-        name: '선택 안함',
-        value: undefined,
-      },
-      ...changeToOptions(genders),
-    ],
+    gender: query.gender,
+    genderOption: changeToOptions(genders),
     changeFilterSelectValue,
   };
 }
 
-function changeToOptions(arr) {
-  return arr.map((item) => ({
-    name: item,
-    value: item,
-  }));
-}
-
 function useQuery() {
   const { search } = useLocation();
+  const url = React.useMemo(() => new URLSearchParams(search), [search]);
 
-  return React.useMemo(() => new URLSearchParams(search), [search]);
+  const age_range = url.get('age_range') ?? undefined;
+  const grade = url.get('grade') ?? undefined;
+  const cheer = url.get('cheer') ?? undefined;
+  const gender = url.get('gender') ?? undefined;
+
+  return { age_range, grade, cheer, gender };
 }

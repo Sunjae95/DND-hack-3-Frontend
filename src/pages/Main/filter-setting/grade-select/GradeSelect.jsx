@@ -11,7 +11,7 @@ export function GradeSelect() {
       options={gradeOption}
       placeholder="티어"
       value={grade}
-      onChange={(e) => changeFilterSelectValue(e)}
+      onChange={(e) => changeFilterSelectValue(e.target.value)}
       css={css`
         width: 120px;
       `}

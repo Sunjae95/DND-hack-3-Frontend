@@ -4,14 +4,14 @@ import React from 'react';
 import { useTeamSelect } from './useTeamSelect';
 
 export function TeamSelect() {
-  const { team, teamOption, changeFilterSelectValue } = useTeamSelect();
+  const { cheer, cheerOption, changeFilterSelectValue } = useTeamSelect();
 
   return (
     <SelectButton
-      options={teamOption}
+      options={cheerOption}
       placeholder="전체 팀"
-      value={team}
-      onChange={(e) => changeFilterSelectValue(e)}
+      value={cheer}
+      onChange={(e) => changeFilterSelectValue(e.target.value)}
       css={css`
         width: 100%;
       `}
