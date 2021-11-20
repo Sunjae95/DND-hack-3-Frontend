@@ -1,22 +1,22 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import Text from '@components/Text';
-import { TextField } from '@components/TextField';
-import TextareaField from '@components/TextareaField';
-import { SelectButton } from '@components/SelectButton';
-import { Button } from '@components/Button';
 import { ReactComponent as Close } from '@assets/icons/modal_close.svg';
-import { textStyle, selectButtonStyle } from '@constants/inlineStyle';
-import axios from 'axios';
+import { Button } from '@components/Button';
+import { SelectButton } from '@components/SelectButton';
+import Text from '@components/Text';
+import TextareaField from '@components/TextareaField';
+import { TextField } from '@components/TextField';
+import { selectButtonStyle, textStyle } from '@constants/inlineStyle';
 import {
-  gradeOptions,
-  teamOptions,
   ageRangeOptions,
   genderOptions,
+  gradeOptions,
+  teamOptions,
 } from '@constants/selectOption';
+import styled from '@emotion/styled';
+import axios from 'axios';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useForm from '../hooks/useForm';
 import { getToken } from '../utils/Token';
-import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
@@ -43,7 +43,6 @@ export function Write() {
     initialValues: {},
     onSubmit: async () => {
       const { user_id } = getToken('user');
-      console.log(JSON.stringify({ ...values, organizer: user_id }));
       await axios({
         method: 'POST',
         url: 'https://hack-dnd.herokuapp.com/match/group/',
