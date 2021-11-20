@@ -1,5 +1,5 @@
 export const gradeOptions = [
-  { name: '티어', value: undefined },
+  { name: '티어', value: null },
   { name: '아이언', value: 1 },
   { name: '브론즈', value: 2 },
   { name: '실버', value: 3 },
@@ -12,7 +12,7 @@ export const gradeOptions = [
 ];
 
 export const teamOptions = [
-  { value: undefined, name: '전체 팀' },
+  { value: null, name: '전체 팀' },
   { value: 1, name: 'DWF_KIA' },
   { value: 2, name: 'T1' },
   { value: 3, name: 'Gen_G' },
@@ -26,7 +26,7 @@ export const teamOptions = [
 ];
 
 export const ageRangeOptions = [
-  { value: undefined, name: '나이' },
+  { value: null, name: '나이' },
   { value: 1, name: '10대' },
   { value: 2, name: '20대' },
   { value: 3, name: '30대' },
@@ -35,7 +35,7 @@ export const ageRangeOptions = [
 ];
 
 export const genderOptions = [
-  { value: undefined, name: '성별' },
+  { value: null, name: '성별' },
   { value: 1, name: '여성' },
   { value: 2, name: '남성' },
 ];

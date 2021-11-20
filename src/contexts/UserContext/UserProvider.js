@@ -11,8 +11,9 @@ const UserProvider = ({ children }) => {
 
   const onSignUp = async (data) => {
     try {
-      const { user_id: userId, nickname } = await handleSignUp(data);
-      dispatch({ type: USER_SIGNUP, payload: { userId, nickname } });
+      const user = await handleSignUp(data);
+
+      dispatch({ type: USER_SIGNUP, payload: user });
     } catch (e) {
       console.log(e);
     }
