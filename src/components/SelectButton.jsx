@@ -30,7 +30,7 @@ export function SelectButton({
         css={css`
           background: none;
           border: none;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: normal;
           box-sizing: border-box;
           width: 100%;
