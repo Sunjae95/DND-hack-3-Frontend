@@ -74,7 +74,7 @@ export function Post({ post }) {
       ) : !user ? (
         <>
           <Button onClick={toggle}>참가</Button>
-          <Modal title="참가" isOpen={isOpen} onClose={toggle}>
+          <Modal title="회원가입" isOpen={isOpen} onClose={toggle}>
             <SignUp onClick={toggle} />
           </Modal>
         </>
