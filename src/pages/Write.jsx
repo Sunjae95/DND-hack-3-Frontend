@@ -1,22 +1,25 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import Text from '@components/Text';
-import { TextField } from '@components/TextField';
-import TextareaField from '@components/TextareaField';
-import { SelectButton } from '@components/SelectButton';
-import { Button } from '@components/Button';
 import { ReactComponent as Close } from '@assets/icons/modal_close.svg';
-import { textStyle, selectButtonStyle } from '@constants/inlineStyle';
-import axios from 'axios';
+import { Button } from '@components/Button';
+import { SelectButton } from '@components/SelectButton';
+import Text from '@components/Text';
+import TextareaField from '@components/TextareaField';
+import { TextField } from '@components/TextField';
+import { selectButtonStyle, textStyle } from '@constants/inlineStyle';
 import {
-  gradeOptions,
-  teamOptions,
   ageRangeOptions,
   genderOptions,
+  gradeOptions,
+  teamOptions,
 } from '@constants/selectOption';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { Spacing } from '@styles/Spacing';
+import { Stack } from '@styles/Stack';
+import axios from 'axios';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useForm from '../hooks/useForm';
 import { getToken } from '../utils/Token';
-import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
@@ -43,7 +46,6 @@ export function Write() {
     initialValues: {},
     onSubmit: async () => {
       const { user_id } = getToken('user');
-      console.log(JSON.stringify({ ...values, organizer: user_id }));
       await axios({
         method: 'POST',
         url: 'https://hack-dnd.herokuapp.com/match/group/',
@@ -89,7 +91,7 @@ export function Write() {
         value="필터 설정"
         style={textStyle('14px', 'bold', '24px', '6px')}
       />
-      <SelectButtonWrapper>
+      <Stack gutter={10}>
         <SelectButton
           style={selectButtonStyle('120px')}
           name="grade"
@@ -111,20 +113,30 @@ export function Write() {
           options={genderOptions}
           onChange={handleChange}
         />
-      </SelectButtonWrapper>
-      <SelectButton
-        style={selectButtonStyle('100%', '12px')}
-        name="cheer"
-        placeholder="전체 팀"
-        options={teamOptions}
-        onChange={handleChange}
-      />
+      </Stack>
+      <div
+        css={css`
+          display: flex;
+        `}
+      >
+        <SelectButton
+          style={selectButtonStyle('100%', '12px')}
+          name="cheer"
+          placeholder="전체 팀"
+          options={teamOptions}
+          onChange={handleChange}
+          css={css`
+            flex: 1;
+          `}
+        />
+      </div>
       <Button
         style={{ height: '44px', marginTop: '72px' }}
         onClick={handleSubmit}
       >
         만들기
       </Button>
+      <Spacing size={50} />
     </Container>
   );
 }
