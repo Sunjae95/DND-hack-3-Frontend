@@ -5,7 +5,7 @@ import { colors } from '../../../../assets/colors';
 import { getToken } from '../../../../utils/Token';
 import { LinkButton } from '../link-button/LinkButton';
 
-export function JoinButton({ group }) {
+export function JoinButton({ group, addJoinedMemberNum }) {
   const [loading, setLoading] = useState();
   const [url, setUrl] = useState();
 
@@ -25,6 +25,7 @@ export function JoinButton({ group }) {
           },
         );
         setUrl(data.open_link);
+        addJoinedMemberNum();
         setLoading(false);
       }}
       backgroundColor="#0137F3"

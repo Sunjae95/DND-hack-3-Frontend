@@ -18,13 +18,16 @@ export function usePosts() {
     const cheerIndex = teams?.findIndex((c) => cheer === c);
     const genderIndex = genders?.findIndex((g) => gender === g);
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     const searchParams = createSearchParams({
-      // user_id: 'july',
+      user_id: user?.user_id,
       grade: gradeIndex != -1 ? gradeIndex + 1 : undefined,
       age_range: ageRangeIndex != -1 ? ageRangeIndex + 1 : undefined,
       cheer: cheerIndex != -1 ? cheerIndex + 1 : undefined,
       gender: genderIndex != -1 ? genderIndex + 1 : undefined,
     });
+
     const { data } = await apiInstance.get(
       `/match/filter_match/?${searchParams}`,
     );
