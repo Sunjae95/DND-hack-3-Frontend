@@ -12,9 +12,9 @@ const FloatingBtn = styled(Icon)`
 
 const FloatingButton = () => {
   return (
-    <Link to="/write">
-      <FloatingBtn />
-    </Link>
+    <FloatingBtn>
+      <Link to="/write" />
+    </FloatingBtn>
   );
 };
 
