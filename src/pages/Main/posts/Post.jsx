@@ -1,6 +1,7 @@
 import { Button } from '@components/Button';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Divider } from '@styles/Divider';
 import { Spacing } from '@styles/Spacing';
 import { Stack } from '@styles/Stack';
 import React from 'react';
@@ -34,38 +35,18 @@ export function Post({ post }) {
         css={css`
           display: flex;
           justify-content: space-between;
-          padding-bottom: 10px;
-          border-bottom: 1px solid ${colors.grey[2]}; ;
         `}
       >
-        <div
-          css={css`
-            color: #333333;
-          `}
-        >
-          {organizer}
-          <div
-            css={css`
-              color: #333333;
-              opacity: 0.5;
-              margin-top: 5px;
-            `}
-          >
-            {created_at}
-          </div>
+        <div>
+          <Organizer>{organizer}</Organizer>
+          <CreatedAt>{created_at}</CreatedAt>
         </div>
-        <div
-          css={css`
-            background-color: #0137f322;
-            border-radius: 4px;
-            padding: 5px;
-            color: #0137f3;
-            height: 20px;
-          `}
-        >
-          모집 {joined_member_num}/4명
-        </div>
+        <JoinedMemberNumber>
+          모집 {joined_member_num > 4 ? 4 : joined_member_num}/4명
+        </JoinedMemberNumber>
       </div>
+      <Spacing size={12} />
+      <Divider />
       <Spacing size={12} />
       <Title>{title}</Title>
       <Spacing size={5} />
@@ -99,16 +80,45 @@ const Container = styled.div`
 
 const Title = styled.div`
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
+  color: #333333;
 `;
 
 const Content = styled.div`
   color: #333333;
+  font-size: 14px;
 `;
 
 const Tag = styled.div`
-  background-color: ${colors.grey[1]};
+  background-color: #00000006;
   border-radius: 16px;
   padding: 4px 8px;
-  color: ${colors.grey[5]};
+  color: #00000080;
+  font-size: 10px;
+`;
+
+const JoinedMemberNumber = styled.div`
+  background-color: #0137f322;
+  border-radius: 4px;
+  color: #0137f3;
+  width: 66px;
+  height: 20px;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CreatedAt = styled.div`
+  color: #333333;
+  opacity: 0.5;
+  margin-top: 5px;
+  font-size: 11px;
+`;
+
+const Organizer = styled.div`
+  color: #33333388;
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 500;
 `;

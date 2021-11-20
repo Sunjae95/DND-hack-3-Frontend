@@ -25,7 +25,14 @@ export function FilterSetting() {
         <GenderSelect />
       </div>
       <Spacing size={8} />
-      <TeamSelect />
+      <div
+        css={css`
+          width: 100%;
+          display: flex;
+        `}
+      >
+        <TeamSelect />
+      </div>
     </Container>
   );
 }

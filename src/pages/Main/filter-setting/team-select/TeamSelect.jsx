@@ -1,3 +1,4 @@
+import { colors } from '@assets/colors';
 import { SelectButton } from '@components/SelectButton';
 import { css } from '@emotion/react';
 import React from 'react';
@@ -13,7 +14,8 @@ export function TeamSelect() {
       value={cheer}
       onChange={(e) => changeFilterSelectValue(e.target.value)}
       css={css`
-        width: 100%;
+        flex: 1;
+        background-color: ${colors.white};
       `}
     />
   );
