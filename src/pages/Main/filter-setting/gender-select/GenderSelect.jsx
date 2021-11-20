@@ -1,3 +1,4 @@
+import { colors } from '@assets/colors';
 import { SelectButton } from '@components/SelectButton';
 import { css } from '@emotion/react';
 import React from 'react';
@@ -13,7 +14,7 @@ export function GenderSelect() {
       placeholder="성별"
       onChange={(e) => changeFilterSelectValue(e.target.value)}
       css={css`
-        width: 100px;
+        background-color: ${colors.white};
       `}
     />
   );

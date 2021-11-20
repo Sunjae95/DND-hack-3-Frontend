@@ -1,3 +1,4 @@
+import { colors } from '@assets/colors';
 import { css } from '@emotion/react';
 import React from 'react';
 import { SelectButton } from '../../../../components/SelectButton';
@@ -13,7 +14,7 @@ export function AgeSelect() {
       placeholder="나이"
       onChange={(e) => changeFilterSelectValue(e.target.value)}
       css={css`
-        width: 85px;
+        background-color: ${colors.white};
       `}
     />
   );
