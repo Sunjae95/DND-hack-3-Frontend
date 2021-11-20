@@ -53,10 +53,10 @@ export function Post({ post }) {
       <Content>{content}</Content>
       <Spacing size={12} />
       <Stack gutter={5}>
-        <Tag>{grades[grade ?? 0]}</Tag>
-        <Tag>{ages[age_range ?? 0]}</Tag>
-        <Tag>{genders[gender ?? 0]}</Tag>
-        <Tag>{teams[cheer ?? 0]}</Tag>
+        {grade != null && <Tag>{grades[grade - 1]}</Tag>}
+        {age_range != null && <Tag>{ages[age_range - 1]}</Tag>}
+        {gender != null && <Tag>{genders[gender - 1]}</Tag>}
+        {cheer != null && <Tag>{teams[cheer - 1]}</Tag>}
       </Stack>
       <Spacing size={24} />
       {joined_member_num >= 4 ? (
