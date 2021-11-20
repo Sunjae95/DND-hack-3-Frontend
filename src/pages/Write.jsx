@@ -11,7 +11,10 @@ import {
   gradeOptions,
   teamOptions,
 } from '@constants/selectOption';
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Spacing } from '@styles/Spacing';
+import { Stack } from '@styles/Stack';
 import axios from 'axios';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -88,7 +91,7 @@ export function Write() {
         value="필터 설정"
         style={textStyle('14px', 'bold', '24px', '6px')}
       />
-      <SelectButtonWrapper>
+      <Stack gutter={10}>
         <SelectButton
           style={selectButtonStyle('120px')}
           name="grade"
@@ -110,20 +113,30 @@ export function Write() {
           options={genderOptions}
           onChange={handleChange}
         />
-      </SelectButtonWrapper>
-      <SelectButton
-        style={selectButtonStyle('100%', '12px')}
-        name="cheer"
-        placeholder="전체 팀"
-        options={teamOptions}
-        onChange={handleChange}
-      />
+      </Stack>
+      <div
+        css={css`
+          display: flex;
+        `}
+      >
+        <SelectButton
+          style={selectButtonStyle('100%', '12px')}
+          name="cheer"
+          placeholder="전체 팀"
+          options={teamOptions}
+          onChange={handleChange}
+          css={css`
+            flex: 1;
+          `}
+        />
+      </div>
       <Button
         style={{ height: '44px', marginTop: '72px' }}
         onClick={handleSubmit}
       >
         만들기
       </Button>
+      <Spacing size={50} />
     </Container>
   );
 }
