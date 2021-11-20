@@ -5,22 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import { useFilterValue } from '../../hooks/useFilterValue';
 
 export const teams = [
-  'DWG KIA',
-  'Gen.G',
-  'Hanwha Life Esports',
+  'DWF_KIA',
   'T1',
-  'DRX',
-  'NS RED FORCE',
-  'kt Rolster',
-  'Liiv Sandbox',
+  'Gen_G',
+  'NongShim_REDFORCE',
+  'Liiv_SANDBOX',
   'Afreeca Freecs',
-  'Fredit BRION',
-  'SeolHaeOne Prince',
-  'Jin Air GreenWings',
-  'Griffin',
-  'MVP',
-  'bbq olivers',
-  'Winners',
+  'kt Rolster',
+  'Hanwha_Life_Esports',
+  'Fredit_BRION',
+  'DRX',
 ];
 
 export function useTeamSelect() {
