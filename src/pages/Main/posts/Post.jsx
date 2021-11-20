@@ -31,9 +31,14 @@ export function Post({ post }) {
     joined_member_num,
     status,
   } = post;
+  const [joinedMemberNum, setJoinedMemberNum] = useState(joined_member_num);
 
   const user = getToken('user');
   const { isOpen, toggle } = useIsOpen();
+
+  const addJoinedMemberNum = () => {
+    setJoinedMemberNum(joinedMemberNum + 1);
+  };
 
   return (
     <Container>
@@ -48,7 +53,7 @@ export function Post({ post }) {
           <CreatedAt>{created_at}</CreatedAt>
         </div>
         <JoinedMemberNumber>
-          모집 {joined_member_num > 4 ? 4 : joined_member_num}/4명
+          모집 {joinedMemberNum > 4 ? 4 : joinedMemberNum}/4명
         </JoinedMemberNumber>
       </div>
       <Spacing size={12} />
@@ -65,12 +70,12 @@ export function Post({ post }) {
         {cheer != null && <Tag>{teams[cheer - 1]}</Tag>}
       </Stack>
       <Spacing size={24} />
-      {joined_member_num >= 4 ? (
+      {status ? (
+        <LinkButton url={url} />
+      ) : joinedMemberNum >= 4 ? (
         <Button backgroundColor={colors.grey[1]} textColor={colors.grey[5]}>
           마감된 모임
         </Button>
-      ) : status ? (
-        <LinkButton url={url} />
       ) : !user ? (
         <>
           <Button onClick={toggle}>참가</Button>
@@ -79,7 +84,7 @@ export function Post({ post }) {
           </Modal>
         </>
       ) : (
-        <JoinButton group={group_id} />
+        <JoinButton group={group_id} addJoinedMemberNum={addJoinedMemberNum} />
       )}
     </Container>
   );
