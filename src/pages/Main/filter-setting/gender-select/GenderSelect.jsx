@@ -13,7 +13,7 @@ export function GenderSelect() {
       placeholder="성별"
       onChange={(e) => changeFilterSelectValue(e.target.value)}
       css={css`
-        width: 85px;
+        width: 100px;
       `}
     />
   );

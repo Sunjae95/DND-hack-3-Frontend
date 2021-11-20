@@ -7,19 +7,31 @@ import { useLocation, useNavigate } from 'react-router-dom';
 export const genders = ['여자', '남자'];
 
 export function useGenderSelect() {
-  const query = useQuery();
   const navigate = useNavigate();
+
+  const query = useQuery();
+  const { cheer, age_range, grade } = query;
 
   const changeFilterSelectValue = (value) => {
     navigate({
       pathname: route.main,
-      search: `?${createSearchParams({ ...query, gender: value })}`,
+      search: `?${createSearchParams(
+        value != null && value != '선택 안함'
+          ? { ...query, gender: value }
+          : { cheer, age_range, grade },
+      )}`,
     });
   };
 
   return {
     gender: query.gender,
-    genderOption: changeToOptions(genders),
+    genderOption: [
+      {
+        name: '선택 안함',
+        value: undefined,
+      },
+      ...changeToOptions(genders),
+    ],
     changeFilterSelectValue,
   };
 }

@@ -17,19 +17,31 @@ export const grades = [
 ];
 
 export function useGradeSelect() {
-  const query = useQuery();
   const navigate = useNavigate();
+
+  const query = useQuery();
+  const { gender, age_range, cheer } = query;
 
   const changeFilterSelectValue = (value) => {
     navigate({
       pathname: route.main,
-      search: `?${createSearchParams({ ...query, grade: value })}`,
+      search: `?${createSearchParams(
+        value != null && value != '선택 안함'
+          ? { ...query, grade: value }
+          : { gender, age_range, cheer },
+      )}`,
     });
   };
 
   return {
     grade: query.grade,
-    gradeOption: changeToOptions(grades),
+    gradeOption: [
+      {
+        name: '선택 안함',
+        value: undefined,
+      },
+      ...changeToOptions(grades),
+    ],
     changeFilterSelectValue,
   };
 }

@@ -24,19 +24,30 @@ export const teams = [
 ];
 
 export function useTeamSelect() {
-  const query = useQuery();
   const navigate = useNavigate();
+  const query = useQuery();
+  const { gender, age_range, grade } = query;
 
   const changeFilterSelectValue = (value) => {
     navigate({
       pathname: route.main,
-      search: `?${createSearchParams({ ...query, cheer: value })}`,
+      search: `?${createSearchParams(
+        value != null && value != '선택 안함'
+          ? { ...query, cheer: value }
+          : { gender, age_range, grade },
+      )}`,
     });
   };
 
   return {
     cheer: query.cheer,
-    cheerOption: changeToOptions(teams),
+    cheerOption: [
+      {
+        name: '선택 안함',
+        value: undefined,
+      },
+      ...changeToOptions(teams),
+    ],
     changeFilterSelectValue,
   };
 }
