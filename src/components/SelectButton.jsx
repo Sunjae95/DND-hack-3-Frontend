@@ -39,7 +39,9 @@ export function SelectButton({
             outline: none;
           }
         `}
+        placeholder={placeholder}
         value={value}
+        name={props.name}
       >
         <option value="" disabled selected>
           {placeholder}

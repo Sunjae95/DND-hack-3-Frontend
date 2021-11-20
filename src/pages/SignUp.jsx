@@ -5,12 +5,15 @@ import { textStyle } from '@constants/inlineStyle';
 import { Button } from '@components/Button';
 import useForm from '@hooks/useForm';
 
-const SignUp = () => {
+import { useUserContext } from '@contexts/UserContext/UserProvider';
+
+const SignUp = ({ onClick }) => {
+  const { onSignUp } = useUserContext();
   const { values, handleChange, handleSubmit } = useForm({
     initialValues: {},
-    onSubmit: () => {
-      //로그인요청 API
-      console.log(values);
+    onSubmit: async () => {
+      await onSignUp(values);
+      onClick();
     },
   });
 

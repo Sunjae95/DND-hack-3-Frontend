@@ -4,8 +4,11 @@ import styled from '@emotion/styled';
 import { Divider } from '@styles/Divider';
 import { Spacing } from '@styles/Spacing';
 import { Stack } from '@styles/Stack';
-import React from 'react';
+import React, { useState } from 'react';
 import { colors } from '../../../assets/colors';
+import { Modal, useIsOpen } from '../../../components/Modal';
+import { getToken } from '../../../utils/Token';
+import SignUp from '../../SignUp';
 import { ages } from '../filter-setting/age-select/useAgeSelect';
 import { genders } from '../filter-setting/gender-select/useGenderSelect';
 import { grades } from '../filter-setting/grade-select/useGradeSelect';
@@ -28,6 +31,9 @@ export function Post({ post }) {
     joined_member_num,
     status,
   } = post;
+
+  const user = getToken('user');
+  const { isOpen, toggle } = useIsOpen();
 
   return (
     <Container>
@@ -65,6 +71,13 @@ export function Post({ post }) {
         </Button>
       ) : status ? (
         <LinkButton url={url} />
+      ) : !user ? (
+        <>
+          <Button onClick={toggle}>참가</Button>
+          <Modal title="참가" isOpen={isOpen} onClose={toggle}>
+            <SignUp onClose={toggle} />
+          </Modal>
+        </>
       ) : (
         <JoinButton group={group_id} />
       )}
