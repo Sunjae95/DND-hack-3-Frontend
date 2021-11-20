@@ -1,6 +1,6 @@
 import { route } from '@router';
 import { changeToOptions } from '@utils/changeToOptions';
-import { createSearchParams } from '@utils/creareSearchParams';
+import { createSearchParams } from '@utils/createSearchParams';
 import { useNavigate } from 'react-router-dom';
 import { useFilterValue } from '../../hooks/useFilterValue';
 
