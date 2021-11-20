@@ -1,16 +1,19 @@
 import { setToken } from '@utils/Token';
+import { USER_ID, NICKNAME } from '@constants/keyValue';
 
-export const handleLogin = async (value) => {
+export const handleSignUp = (value) => {
   try {
     const {
-      data: { user, token },
+      data: { user_id, nickname },
       status,
-    } = await 'login';
+    } = value;
 
     if (status === 200) {
-      setToken(token);
+      setToken(USER_ID, user_id);
+      setToken(NICKNAME, nickname);
     }
-    return user;
+
+    return { user_id, nickname };
   } catch (e) {
     throw new Error('로그인실패');
   }
