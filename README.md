@@ -23,6 +23,9 @@
 - react-hook-form
 - react-responsive
 
+### 구현 기간
+2021.11.19 - 2021.11.20
+
 ### 팀원
 - frontend: 2명 
   - [박진선](https://github.com/jinsunee)
