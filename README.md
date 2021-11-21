@@ -31,10 +31,10 @@ https://dnd-hack-3-frontend.web.app/
 2021.11.19 - 2021.11.20
 
 ### 팀원
-- frontend: 2명 
+- FE: 2명 
   - [박진선](https://github.com/jinsunee)
   - [이선재](https://github.com/Sunjae95)
-- backend: 2명
+- BE: 2명
 - Designer: 1명
 
 ### 이력
