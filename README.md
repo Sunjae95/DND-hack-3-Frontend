@@ -6,14 +6,17 @@
     <img src="https://user-images.githubusercontent.com/31176502/142759248-1ed272a2-4aa3-4c45-9b6a-9b79fa9e78ef.png" alt="lol_banner" title="lol_banner"  />
 </a>
 
+### 링크
+https://dnd-hack-3-frontend.web.app/
+
 ### 기능 소개
 - 모임 생성 (내가 보고싶은 경기를)
-  <img src="https://user-images.githubusercontent.com/31176502/142759521-c6bd3f78-20e4-4317-aa44-f54225570513.png" alt="add_match" title="add_match" height="400" />
+  <br/><img src="https://user-images.githubusercontent.com/31176502/142759521-c6bd3f78-20e4-4317-aa44-f54225570513.png" alt="add_match" title="add_match" height="400" />
 
 - 필터 설정 (원하는 사람과)
-  <img src="https://user-images.githubusercontent.com/31176502/142759535-38d5c2c5-fc9d-4663-b163-550ea76d7615.png" alt="set_filter" title="set_filter" height="525"  />
+  <br/><img src="https://user-images.githubusercontent.com/31176502/142759535-38d5c2c5-fc9d-4663-b163-550ea76d7615.png" alt="set_filter" title="set_filter" height="525"  />
 - 모임 참여 (소통하며 보기)
-  <img src="https://user-images.githubusercontent.com/31176502/142759708-671717b5-91fe-4b24-9796-62594c3493a8.gif" alt="feature_join" title="feature_join"  />
+  <br/><img src="https://user-images.githubusercontent.com/31176502/142759708-671717b5-91fe-4b24-9796-62594c3493a8.gif" alt="feature_join" title="feature_join"  />
 
 ### 기술 스택
 - reactJS
